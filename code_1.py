@@ -63,8 +63,9 @@ class CargoHold:
             self.suitcases.append(suitcase)
             self.maximum_weight -= suitcase.weight()
         
-    
-        
+    def print_items(self):
+        for x in self.suitcases:
+            x.print_items()
     
     def __str__(self):
         if len(self.suitcases) == 1:
@@ -75,9 +76,6 @@ class CargoHold:
 
 
 if __name__ == "__main__":
-    cargo_hold = CargoHold(1000)
-    print(cargo_hold)
-
     book = Item("ABC Book", 2)
     phone = Item("Nokia 3210", 1)
     brick = Item("Brick", 4)
@@ -89,10 +87,12 @@ if __name__ == "__main__":
     peters_suitcase = Suitcase(10)
     peters_suitcase.add_item(brick)
 
+    cargo_hold = CargoHold(1000)
     cargo_hold.add_suitcase(adas_suitcase)
-    print(cargo_hold)
-
     cargo_hold.add_suitcase(peters_suitcase)
-    print(cargo_hold)
+
+    print("The suitcases in the cargo hold contain the following items:")
+    cargo_hold.print_items()
+
 
 
