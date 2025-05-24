@@ -26,7 +26,11 @@ class Suitcase:
             self.items.append(item)
             
     def __str__(self):
-        return f"{len(self.items)} items ({self.total} kg)"
+        if len(self.items) == 1:
+            return f"{len(self.items)} item ({self.total} kg)"
+
+        else:
+            return f"{len(self.items)} items ({self.total} kg)"
 
 
 
